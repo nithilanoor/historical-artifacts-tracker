@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
+import { GiSpartanHelmet } from "react-icons/gi";
 
 const Navbar = () => {
 
     const links = <>
 
         <Link className="font-semibold" to="/">Home</Link>
-        <Link className="font-semibold" to="/">All Artifacts</Link>
+        <Link className="font-semibold" to="/allArtifacts">All Artifacts</Link>
         <Link className="font-semibold" to="/">Add Artifacts</Link>
     </>
 
@@ -35,7 +36,10 @@ const Navbar = () => {
                         </div>
                     </ul>
                 </div>
-                <a className="btn btn-ghost text-white text-xl font-bold">Historical Artifacts</a>
+                <div className="flex items-center gap-1">
+                    <h2 className="text-4xl text-zinc-900"><GiSpartanHelmet /></h2>
+                    <a className="text-white text-xl font-bold">Historical Artifacts</a>
+                </div>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">

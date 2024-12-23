@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import HomeLayout from "../layouts/HomeLayout";
 import Error from "../pages/Error";
+import AllArtifacts from "../pages/AllArtifacts";
 
 
 const router = createBrowserRouter([
@@ -13,6 +14,10 @@ const router = createBrowserRouter([
         path: "*",
         element: <Error></Error>
     },
+    {
+        path: "allArtifacts",
+        element: <AllArtifacts></AllArtifacts>
+    }
 
 ])
 
