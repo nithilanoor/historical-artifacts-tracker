@@ -7,7 +7,7 @@ const Navbar = () => {
 
         <Link className="font-semibold" to="/">Home</Link>
         <Link className="font-semibold" to="/allArtifacts">All Artifacts</Link>
-        <Link className="font-semibold" to="/">Add Artifacts</Link>
+        <Link className="font-semibold" to="/addArtifact">Add Artifact</Link>
     </>
 
     return (

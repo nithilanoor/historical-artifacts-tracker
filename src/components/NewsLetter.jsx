@@ -8,7 +8,7 @@ const NewsLetter = () => {
                 <div>
                     <div className="p-4">
                         <h1 className="text-[#E2B13C] text-4xl font-bold">Stay Informed With Our <br /> Newsletter</h1>
-                        <p className="text-[#E2B13C]">Get updated information, news, insights, and upcoming exhibitions</p>
+                        <p className="text-[#E2B13C] mt-1">Get updated information and news on insights and upcoming exhibitions</p>
                     </div>
                     <div className="join p-4">
                         <input className="input input-bordered rounded-full join-item" placeholder="Email" />

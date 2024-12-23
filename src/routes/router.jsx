@@ -5,6 +5,7 @@ import AllArtifacts from "../pages/AllArtifacts";
 import AuthLayout from "../layouts/AuthLayout";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
+import AddArtifact from "../pages/AddArtifact";
 
 
 const router = createBrowserRouter([
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
     {
         path: "allArtifacts",
         element: <AllArtifacts></AllArtifacts>
+    },
+    {
+        path: "addArtifact",
+        element: <AddArtifact></AddArtifact>
     }
 
 ])
