@@ -1,8 +1,24 @@
-# React + Vite
+# Historical Artifacts Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### The purpose of this project is to create an engaging and user-friendly web application for tracking historical artifacts. It aims to provide users with an interactive platform to explore, document, and appreciate historical items such as the Rosetta Stone, Antikythera Mechanism, and other culturally significant artifacts.
 
-Currently, two official plugins are available:
+## [Live Link](https://historical-artifacts-tracker.netlify.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Key Features:
+* Responsive Design
+* User Authentication
+* Artifact Management
+* Private Routes
+* Notifications
+* Error Handling
+
+### NPM Packages Used:
+* React
+* React Router
+* Tailwind CSS
+* DaisyUI
+* Firebase
+* Express.js
+* Cors
+* SweetAlert2
+* React Icons
