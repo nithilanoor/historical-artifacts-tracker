@@ -1,8 +1,7 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import { useContext, useState } from "react";
-import { AuthContext } from "../provider/AuthProvider";
 import useAuth from "../hooks/useAuth";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { auth } from "../firebase/firebase.init";
@@ -25,8 +24,9 @@ const Register = () => {
             })
     }
 
-    const { createNewUser, setUser } = useAuth();
+    const { createNewUser, setUser, updateUserProfile } = useAuth();
     const [error, setError] = useState({});
+    const navigate = useNavigate();
 
     const handleRegister = e => {
         e.preventDefault();
@@ -58,6 +58,13 @@ const Register = () => {
             .then(result => {
                 const user = result.user;
                 setUser(user);
+                updateUserProfile({ displayName: name, photoURL: photo })
+                    .then(
+                        navigate("/")
+                    )
+                    .catch(err => {
+                        console.log(err);
+                    })
                 // console.log(user);
             })
             .catch((error) => {

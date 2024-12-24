@@ -54,10 +54,17 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <div>
-                    {user && user.name}
-                </div>
-                <Link to="/auth/login" className="btn text-[#E2B13C]">Login</Link>
+                {
+                    user && user?.email ? <div className="flex items-center gap-2">
+                        <div>
+                            {
+                                user && user?.photoURL ? <div className="tooltip tooltip-bottom" data-tip={user.displayName}><img src={user && user.photoURL} className="w-11 h-11 rounded-full object-cover" alt="" />
+                                </div> : <div><p className="flex justify-center items-center w-11 h-11 border rounded-full border-[#E2B13C] text-[#E2B13C]"><CiUser /></p><span className="bg-[#E2B13C] text-white rounded-xl text-sm p-1 absolute top-16 right-32 opacity-0 hover:opacity-95">
+                                    {user && user.displayName}
+                                </span></div>
+                            }
+                        </div> <button onClick={logOut} className="btn text-[#E2B13C] bg-white">Log Out</button></div> : <Link to="/auth/login" className="btn text-[#E2B13C] bg-white">Login</Link>
+                }
             </div>
         </div>
     );
