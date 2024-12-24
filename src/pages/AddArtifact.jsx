@@ -74,6 +74,7 @@ const AddArtifact = () => {
                             <span className="label-text">Created At</span>
                         </label>
                         <input
+                            placeholder="created at"
                             name="createdAt"
                             type="text"
                             className="input input-bordered"
@@ -87,6 +88,7 @@ const AddArtifact = () => {
                             <span className="label-text">Discovered At</span>
                         </label>
                         <input
+                            placeholder="discovered at"
                             name="discoveredAt"
                             type="text"
                             className="input input-bordered"
@@ -100,6 +102,7 @@ const AddArtifact = () => {
                             <span className="label-text">Discovered By</span>
                         </label>
                         <input
+                            placeholder="discovered by"
                             name="discoveredBy"
                             type="text"
                             className="input input-bordered"
@@ -113,6 +116,7 @@ const AddArtifact = () => {
                             <span className="label-text">Present Location</span>
                         </label>
                         <input
+                            placeholder="present location"
                             name="location"
                             type="text"
                             className="input input-bordered"

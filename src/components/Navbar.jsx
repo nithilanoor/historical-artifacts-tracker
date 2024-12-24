@@ -1,7 +1,11 @@
 import { Link } from "react-router-dom";
 import { GiSpartanHelmet } from "react-icons/gi";
+import { useContext } from "react";
+import { AuthContext } from "../provider/AuthProvider";
 
 const Navbar = () => {
+
+    const { user } = useContext(AuthContext)
 
     const links = <>
 
@@ -49,6 +53,9 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
+                <div>
+                    {/* {user.name} */}
+                </div>
                 <Link to="/auth/login" className="btn text-[#E2B13C]">Login</Link>
             </div>
         </div>
