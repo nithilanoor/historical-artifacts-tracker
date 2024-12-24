@@ -1,8 +1,9 @@
 import { IoMdHeart } from "react-icons/io";
+import { Link } from "react-router-dom";
 
 const ArtifactCard = ({ art }) => {
 
-    const { name, image, historicalContext, likeCount } = art;
+    const { _id, name, image, historicalContext, likeCount } = art;
 
     return (
         <div className="card card-compact bg-base-100 shadow-xl">
@@ -17,7 +18,7 @@ const ArtifactCard = ({ art }) => {
                 <p><span className="font-bold">Historical Context:</span> {historicalContext}</p>
                 <p className="flex items-center gap-1 mt-1"><IoMdHeart className="text-[#E2B13C]" />Likes: {likeCount}</p>
                 <div className="card-actions justify-start">
-                    <button className="btn bg-[#E2B13C] text-white hover:bg-white hover:text-[#E2B13C]">View Details</button>
+                    <Link to={`/details/${_id}`}><button className="btn bg-[#E2B13C] text-white hover:bg-white hover:text-[#E2B13C]">View Details</button></Link>
                 </div>
             </div>
         </div>

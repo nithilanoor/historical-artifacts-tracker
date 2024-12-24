@@ -7,6 +7,7 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import AddArtifact from "../pages/AddArtifact";
 import PrivateRoute from "./PrivateRoute";
+import Details from "../pages/Details";
 
 
 const router = createBrowserRouter([
@@ -36,6 +37,11 @@ const router = createBrowserRouter([
     {
         path: "allArtifacts",
         element: <AllArtifacts></AllArtifacts>
+    },
+    {
+        path: "/details/:id",
+        element: <PrivateRoute><Details></Details></PrivateRoute>,
+        loader: ({ params }) => fetch(`http://localhost:5000/artifacts/${params.id}`)
     },
     {
         path: "addArtifact",
