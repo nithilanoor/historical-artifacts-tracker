@@ -1,14 +1,32 @@
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import useAuth from "../hooks/useAuth";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { auth } from "../firebase/firebase.init";
 
 
 const Register = () => {
 
+    // authenticate with google
+    const provider = new GoogleAuthProvider();
+
+    const handleGoogleSignIn = () => {
+        signInWithPopup(auth, provider)
+            .then(result => {
+                const user = result.user;
+                setUser(user);
+                // navigate(location?.state ? location.state : "/");
+            })
+            .catch(err => {
+                setError(err.code)
+            })
+    }
+
     const { createNewUser, setUser } = useAuth();
+    const [error, setError] = useState({});
 
     const handleRegister = e => {
         e.preventDefault();
@@ -20,6 +38,18 @@ const Register = () => {
         const email = form.email.value;
         const photo = form.photo.value;
         const password = form.password.value;
+
+        const passwordPattern = /^(?=.*[A-Z])(?=.*[a-z]).{6,}$/;
+
+        setError({});
+
+        if (!passwordPattern.test(password)) {
+            setError({
+                ...error,
+                password: "Password must be at least 6 characters long and include both uppercase and lowercase letters."
+            });
+            return;
+        }
 
         const newUser = { name, email, photo, password }
         console.log(newUser);
@@ -79,10 +109,11 @@ const Register = () => {
                                         <span className="label-text">Password</span>
                                     </label>
                                     <input name="password" type="password" placeholder="password" className="input input-bordered" required />
-                                    {/* {
-                                        error for password
+                                    {
+                                        error.password && (
+                                            <p className="text-sm text-red-900">{error.password}</p>
                                         )
-                                    } */}
+                                    }
                                     <label className="label">
                                         <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                                     </label>
@@ -91,7 +122,7 @@ const Register = () => {
 
                                 </div>
                                 <div className="my-6">
-                                    <button className="btn w-full bg-[#E2B13C] text-white hover:bg-white hover:text-[#E2B13C]">Sign in with Google</button>
+                                    <button onClick={handleGoogleSignIn} className="btn w-full bg-[#E2B13C] text-white hover:bg-white hover:text-[#E2B13C]">Sign in with Google</button>
                                 </div>
                                 <div className="form-control">
                                     <button className="btn bg-[#E2B13C] text-white hover:bg-white hover:text-[#E2B13C]">Register</button>

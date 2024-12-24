@@ -2,10 +2,11 @@ import { Link } from "react-router-dom";
 import { GiSpartanHelmet } from "react-icons/gi";
 import { useContext } from "react";
 import { AuthContext } from "../provider/AuthProvider";
+import { CiUser } from "react-icons/ci";
 
 const Navbar = () => {
 
-    const { user } = useContext(AuthContext)
+    const { user, logOut } = useContext(AuthContext)
 
     const links = <>
 
