@@ -5,6 +5,7 @@ import { useContext, useState } from "react";
 import useAuth from "../hooks/useAuth";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { auth } from "../firebase/firebase.init";
+import Swal from "sweetalert2";
 
 
 const Register = () => {
@@ -17,7 +18,15 @@ const Register = () => {
             .then(result => {
                 const user = result.user;
                 setUser(user);
-                // navigate(location?.state ? location.state : "/");
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    text: "Welcome to  Historical Artifacts! Your account has been registered successfully.",
+                    color: '#E2B13C',
+                    showConfirmButton: false,
+                    timer: 1900
+                });
+                navigate(location?.state ? location.state : "/");
             })
             .catch(err => {
                 setError(err.code)
@@ -58,6 +67,14 @@ const Register = () => {
             .then(result => {
                 const user = result.user;
                 setUser(user);
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    text: "Welcome to  Historical Artifacts! Your account has been registered successfully.",
+                    color: '#E2B13C',
+                    showConfirmButton: false,
+                    timer: 1900
+                });
                 updateUserProfile({ displayName: name, photoURL: photo })
                     .then(
                         navigate("/")
@@ -67,10 +84,11 @@ const Register = () => {
                     })
                 // console.log(user);
             })
-            .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                console.log(errorCode, errorMessage);
+            .catch((err) => {
+                // const errorCode = error.code;
+                // const errorMessage = error.message;
+                setError({ ...error, register: 'Invalid user information. Try again.' })
+                console.log(err.code);
             });
 
     }
@@ -125,10 +143,27 @@ const Register = () => {
                                         <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                                     </label>
                                 </div>
-                                <div className="mx-auto">
-
+                                <div>
+                                    {
+                                        error.register && (
+                                            <div role="alert" className="alert h-1 flex alert-error">
+                                                <svg
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    className="h-6 w-6 shrink-0 stroke-current"
+                                                    fill="none"
+                                                    viewBox="0 0 24 24">
+                                                    <path
+                                                        strokeLinecap="round"
+                                                        strokeLinejoin="round"
+                                                        strokeWidth="2"
+                                                        d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                                </svg>
+                                                <span className="text-sm text-white">{error.register}</span>
+                                            </div>
+                                        )
+                                    }
                                 </div>
-                                <div className="my-6">
+                                <div className="mt-6">
                                     <button onClick={handleGoogleSignIn} className="btn w-full bg-[#E2B13C] text-white hover:bg-white hover:text-[#E2B13C]">Sign in with Google</button>
                                 </div>
                                 <div className="form-control">

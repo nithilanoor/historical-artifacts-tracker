@@ -6,6 +6,7 @@ import AuthLayout from "../layouts/AuthLayout";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import AddArtifact from "../pages/AddArtifact";
+import PrivateRoute from "./PrivateRoute";
 
 
 const router = createBrowserRouter([
@@ -38,7 +39,7 @@ const router = createBrowserRouter([
     },
     {
         path: "addArtifact",
-        element: <AddArtifact></AddArtifact>
+        element: <PrivateRoute><AddArtifact></AddArtifact></PrivateRoute>
     }
 
 ])
