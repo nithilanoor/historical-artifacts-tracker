@@ -11,7 +11,7 @@
         "presentLocation": "British Museum, London",
         "addedBy": "lisa.smith@example.com",
         "adderName": "Lisa Smith",
-        "likeCount": 150
+        "likeCount": 180
     },
     {
         "id": "2",
@@ -25,7 +25,7 @@
         "presentLocation": "National Archaeological Museum, Athens",
         "addedBy": "john.doe@example.com",
         "adderName": "John Doe",
-        "likeCount": 120
+        "likeCount": 200
     },
     {
         "id": "3",
@@ -39,7 +39,7 @@
         "presentLocation": "Xi'an, China",
         "addedBy": "emma.brown@example.com",
         "adderName": "Emma Brown",
-        "likeCount": 140
+        "likeCount": 160
     },
     {
         "id": "4",
@@ -53,7 +53,7 @@
         "presentLocation": "Louvre Museum, Paris",
         "addedBy": "michael.jones@example.com",
         "adderName": "Michael Jones",
-        "likeCount": 180
+        "likeCount": 179
     },
     {
         "id": "5",
@@ -67,7 +67,7 @@
         "presentLocation": "Egyptian Museum, Cairo",
         "addedBy": "sarah.green@example.com",
         "adderName": "Sarah Green",
-        "likeCount": 170
+        "likeCount": 168
     },
     {
         "id": "6",
@@ -81,7 +81,7 @@
         "presentLocation": "Israel Museum, Jerusalem",
         "addedBy": "daniel.clark@example.com",
         "adderName": "Daniel Clark",
-        "likeCount": 160
+        "likeCount": 139
     },
     {
         "id": "7",
@@ -123,7 +123,7 @@
         "presentLocation": "Wiltshire, England",
         "addedBy": "chloe.lee@example.com",
         "adderName": "Chloe Lee",
-        "likeCount": 200
+        "likeCount": 151
     },
     {
         "id": "10",
