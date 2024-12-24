@@ -54,7 +54,7 @@ const Navbar = () => {
             </div>
             <div className="navbar-end">
                 <div>
-                    {/* {user.name} */}
+                    {user && user.name}
                 </div>
                 <Link to="/auth/login" className="btn text-[#E2B13C]">Login</Link>
             </div>

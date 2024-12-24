@@ -1,9 +1,43 @@
 import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
+import { useContext } from "react";
+import { AuthContext } from "../provider/AuthProvider";
+import useAuth from "../hooks/useAuth";
 
 
 const Register = () => {
+
+    const { createNewUser, setUser } = useAuth();
+
+    const handleRegister = e => {
+        e.preventDefault();
+
+        // get form data
+        const form = e.target;
+
+        const name = form.name.value;
+        const email = form.email.value;
+        const photo = form.photo.value;
+        const password = form.password.value;
+
+        const newUser = { name, email, photo, password }
+        console.log(newUser);
+
+        createNewUser(email, password)
+            .then(result => {
+                const user = result.user;
+                setUser(user);
+                // console.log(user);
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.log(errorCode, errorMessage);
+            });
+
+    }
+
     return (
         <div className="w-11/12 mx-auto">
             <nav>
@@ -14,7 +48,7 @@ const Register = () => {
                     <div className="hero-content flex-col lg:flex-row-reverse">
                         <div className="rounded-xl bg-base-100 w-full md:w-96 py-4 shrink-0 shadow-2xl">
                             <h2 className="text-2xl p-4 font-bold text-[#E2B13C] text-center">Register Now!</h2>
-                            <form  className="card-body">
+                            <form onSubmit={handleRegister} className="card-body">
                                 {/* Name */}
                                 <div className="form-control">
                                     <label className="label">
@@ -54,7 +88,7 @@ const Register = () => {
                                     </label>
                                 </div>
                                 <div className="mx-auto">
-                                    
+
                                 </div>
                                 <div className="my-6">
                                     <button className="btn w-full bg-[#E2B13C] text-white hover:bg-white hover:text-[#E2B13C]">Sign in with Google</button>
