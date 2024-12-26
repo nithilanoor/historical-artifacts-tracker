@@ -4,7 +4,6 @@ import Navbar from "../components/Navbar";
 import useAxios from "../hooks/useAxios";
 import ArtifactCard from "../components/ArtifactCard";
 import { Helmet } from "react-helmet-async";
-import axios from "axios";
 
 const AllArtifacts = () => {
 
