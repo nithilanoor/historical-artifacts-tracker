@@ -1,11 +1,16 @@
+import { useState } from "react";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import useAuth from "../hooks/useAuth";
+import useAxios from "../hooks/useAxios";
+import Swal from "sweetalert2";
 
 
 const AddArtifact = () => {
 
     const { user } = useAuth();
+    const axiosSecure = useAxios();
+    const [artifacts, setArtifacts] = useState([]);
 
     const handleAddArtifact = e => {
 
@@ -24,9 +29,25 @@ const AddArtifact = () => {
         const adderName = form.adderName.value;
         const addedBy = form.addedBy.value;
 
-        const newArtifact = {name, image, type, historicalContext, createdAt, discoveredAt, discoveredBy, presentLocation, adderName, addedBy};
+        const newArtifact = { name, image, type, historicalContext, createdAt, discoveredAt, discoveredBy, presentLocation, adderName, addedBy };
         console.log(newArtifact);
 
+        // send data to the server
+        axiosSecure.post('/artifacts', newArtifact)
+            .then(res => {
+                console.log(res.data);
+                setArtifacts(res.data);
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    text: "Your Artifact has been added successfully!",
+                    color: '#E2B13C',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+                form.reset();
+            })
+            .catch(err => console.log(err.code))
     }
 
     return (
@@ -78,6 +99,7 @@ const AddArtifact = () => {
                             <option value="Weapons">Weapons</option>
                             <option value="Documents">Documents</option>
                             <option value="Writings">Writings</option>
+                            <option value="Writings">Jewelry</option>
                         </select>
                     </div>
 
@@ -156,7 +178,7 @@ const AddArtifact = () => {
                             <span className="label-text">Artifact Adder Name</span>
                         </label>
                         <input
-                        defaultValue={user?.displayName}
+                            defaultValue={user?.displayName}
                             name="adderName"
                             type="text"
                             className="input input-bordered"
@@ -170,7 +192,7 @@ const AddArtifact = () => {
                             <span className="label-text">Artifact Adder Email</span>
                         </label>
                         <input
-                        defaultValue={user?.email}
+                            defaultValue={user?.email}
                             name="addedBy"
                             type="text"
                             className="input input-bordered"
