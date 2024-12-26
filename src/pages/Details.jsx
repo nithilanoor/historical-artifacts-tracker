@@ -22,7 +22,7 @@ const Details = ({ art }) => {
     // const handleLike = async () => {
     //     try {
 
-    //         const response = await axios.patch(`http://localhost:5000/artifacts/${_id}/like`);
+    //         const response = await axios.patch(`https://historical-artifacts-server-virid.vercel.app/artifacts/${_id}/like`);
 
     //         if (response.status === 200) {
     //             setLikes(likes + 1);

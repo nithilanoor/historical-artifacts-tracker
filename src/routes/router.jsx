@@ -44,7 +44,7 @@ const router = createBrowserRouter([
     {
         path: "/details/:id",
         element: <PrivateRoute><Details></Details></PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/artifacts/${params.id}`)
+        loader: ({ params }) => fetch(`https://historical-artifacts-server-virid.vercel.app/artifacts/${params.id}`)
     },
     {
         path: "addArtifact",
@@ -61,7 +61,7 @@ const router = createBrowserRouter([
     {
         path: 'update/:id',
         element: <PrivateRoute><Update></Update></PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/artifacts/${params.id}`)
+        loader: ({ params }) => fetch(`https://historical-artifacts-server-virid.vercel.app/artifacts/${params.id}`)
     }
 
 ])
