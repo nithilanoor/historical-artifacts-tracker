@@ -10,6 +10,7 @@ import PrivateRoute from "./PrivateRoute";
 import Details from "../pages/Details";
 import MyArtifacts from "../pages/MyArtifacts";
 import LikedArtifacts from "../pages/LikedArtifacts";
+import Update from "../pages/Update";
 
 
 const router = createBrowserRouter([
@@ -57,6 +58,10 @@ const router = createBrowserRouter([
         path: 'likedArtifacts',
         element: <PrivateRoute><LikedArtifacts></LikedArtifacts></PrivateRoute>
     },
+    {
+        path: 'update/:id',
+        element: <PrivateRoute><Update></Update></PrivateRoute>
+    }
 
 ])
 
