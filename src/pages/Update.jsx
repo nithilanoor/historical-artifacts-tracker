@@ -3,6 +3,7 @@ import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import useAxios from "../hooks/useAxios";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const Update = () => {
 
@@ -53,6 +54,9 @@ const Update = () => {
 
     return (
         <div className="w-11/12 mx-auto">
+            <Helmet>
+                <title>Update | {name}</title>
+            </Helmet>
             <nav><Navbar></Navbar></nav>
             <section className="my-12">
                 <div className="max-w-2xl mx-auto p-6 my-12 bg-white rounded-lg shadow-lg">

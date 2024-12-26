@@ -6,6 +6,7 @@ import useAxios from "../hooks/useAxios";
 import { MdDeleteForever, MdOutlineModeEditOutline } from "react-icons/md";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 
 const MyArtifacts = () => {
@@ -58,6 +59,9 @@ const MyArtifacts = () => {
 
     return (
         <div className="w-11/12 mx-auto">
+            <Helmet>
+                <title>My Artifacts</title>
+            </Helmet>
             <nav><Navbar></Navbar></nav>
             <section className="my-12">
                 <h2 className="text-xl font-bold text-[#E2B13C]">My Artifacts: ({artifacts.length})</h2>

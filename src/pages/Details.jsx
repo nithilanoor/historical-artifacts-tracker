@@ -2,18 +2,22 @@ import { IoMdHeart } from "react-icons/io";
 import { useLoaderData, useParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { IoMdThumbsUp } from "react-icons/io";
-import { IoMdThumbsDown } from "react-icons/io";
+// import { IoMdThumbsUp } from "react-icons/io";
+// import { IoMdThumbsDown } from "react-icons/io";
 import LikeBtn from "../components/LikeBtn";
+import { Helmet } from "react-helmet-async";
 
 const Details = () => {
 
-    const { id } = useParams();
+    // const { id } = useParams();
     const artifact = useLoaderData();
     const { name, image, type, historicalContext, createdAt, discoveredAt, discoveredBy, presentLocation, addedBy, adderName, likeCount } = artifact;
 
     return (
         <div>
+            <Helmet>
+                <title>{name}</title>
+            </Helmet>
             <nav>
                 <Navbar></Navbar>
             </nav>
@@ -38,7 +42,7 @@ const Details = () => {
                         <p className="flex items-center gap-1 mt-1 font-semibold"><IoMdHeart className="text-[#E2B13C]" />Likes: {likeCount}</p>
                     </div>
                     <div className="flex gap-4 justify-start items-center">
-                        {/* <LikeBtn artifactId={id} initialLikeCount={likeCount}></LikeBtn> */}
+                        {/* <LikeBtn></LikeBtn> */}
                     </div>
                 </div>
             </div>

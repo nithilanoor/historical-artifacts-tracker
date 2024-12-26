@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar";
 import useAuth from "../hooks/useAuth";
 import useAxios from "../hooks/useAxios";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 
 const AddArtifact = () => {
@@ -52,6 +53,9 @@ const AddArtifact = () => {
 
     return (
         <div className="w-11/12 mx-auto">
+            <Helmet>
+                <title>Artifacts | Add Artifact</title>
+            </Helmet>
             <nav>
                 <Navbar></Navbar>
             </nav>

@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import Banner from "../components/Banner";
 import Facts from "../components/Facts";
 import Featured from "../components/Featured";
@@ -9,6 +10,9 @@ const HomeLayout = () => {
     return (
         <div>
 
+            <Helmet>
+                <title>Artifacts | Home</title>
+            </Helmet>
             <nav className="w-11/12 mx-auto">
                 <Navbar></Navbar>
             </nav>

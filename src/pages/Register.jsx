@@ -6,6 +6,7 @@ import useAuth from "../hooks/useAuth";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { auth } from "../firebase/firebase.init";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 
 const Register = () => {
@@ -95,6 +96,9 @@ const Register = () => {
 
     return (
         <div className="w-11/12 mx-auto">
+            <Helmet>
+                <title>Artifacts | Register</title>
+            </Helmet>
             <nav>
                 <Navbar></Navbar>
             </nav>

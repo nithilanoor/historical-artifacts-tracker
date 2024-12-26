@@ -3,6 +3,7 @@ import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import useAxios from "../hooks/useAxios";
 import ArtifactCard from "../components/ArtifactCard";
+import { Helmet } from "react-helmet-async";
 
 const AllArtifacts = () => {
 
@@ -20,6 +21,9 @@ const AllArtifacts = () => {
 
     return (
         <div className="w-11/12 mx-auto">
+            <Helmet>
+                <title>All Artifacts</title>
+            </Helmet>
             <nav>
                 <Navbar></Navbar>
             </nav>

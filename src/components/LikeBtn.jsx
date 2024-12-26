@@ -1,31 +1,33 @@
+import axios from "axios";
 import { useState } from "react";
-import useAxios from "../hooks/useAxios";
+// import useAxios from "../hooks/useAxios";
 
-const LikeBtn = ({ id, initialLikeCount }) => {
 
-    const [liked, setLiked] = useState(false);
-    const [likeCount, setLikeCount] = useState(initialLikeCount);
-    const axiosSecure = useAxios();
+const LikeBtn = ({ artifactId, initialLikes, userId, initialLiked }) => {
 
-    const handleToggle = () => {
-        const action = liked ? "dislike" : "like";
-        axiosSecure.put(`/artifacts/${id}/like`, action)
-            .then(res => res.json())
-            .then(() => {
-                setLikeCount(liked ? likeCount - 1 : likeCount + 1);
+    const [likes, setLikes] = useState(initialLikes);
+    const [liked, setLiked] = useState(initialLiked);
+    // const axiosSecure = useAxios();
+
+    const handleToggleLike = async () => {
+        try {
+            const response = await axios.put(`/artifacts/${artifactId}/like`);
+            if (response.status === 200) {
                 setLiked(!liked);
-            })
-            .catch(err => console.log(err.code))
-
-    }
+                setLikes(liked ? likes - 1 : likes + 1);
+            }
+        } catch (error) {
+            console.error("Error liking artifact:", error);
+        }
+    };
 
     return (
         <div>
             <button
-                className={`btn ${liked ? "btn-error" : "btn-primary"} btn-sm`}
-                onClick={handleToggle}
+                onClick={handleToggleLike}
+                className={`btn ${liked ? "btn-primary" : "btn-outline"}`}
             >
-                {liked ? "Unlike" : "Like"} ({likeCount})
+                {liked ? "Unlike" : "Like"} ({likes})
             </button>
         </div>
     );

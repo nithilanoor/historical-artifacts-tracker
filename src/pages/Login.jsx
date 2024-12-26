@@ -6,6 +6,7 @@ import { useState } from "react";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { auth } from "../firebase/firebase.init";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
 
@@ -71,6 +72,9 @@ const Login = () => {
 
     return (
         <div className="w-11/12 mx-auto">
+            <Helmet>
+                <title>Artifacts | Login</title>
+            </Helmet>
             <nav>
                 <Navbar></Navbar>
             </nav>
