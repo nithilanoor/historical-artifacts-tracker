@@ -100,6 +100,11 @@ const AddArtifact = () => {
                             <option value="Documents">Documents</option>
                             <option value="Writings">Writings</option>
                             <option value="Writings">Jewelry</option>
+                            <option value="Writings">Sculptures</option>
+                            <option value="Writings">Art</option>
+                            <option value="Writings">Artifacts</option>
+                            <option value="Writings">Relics</option>
+                            <option value="Writings">Monuments</option>
                         </select>
                     </div>
 
