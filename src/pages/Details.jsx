@@ -1,12 +1,14 @@
 import { IoMdHeart } from "react-icons/io";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { IoMdThumbsUp } from "react-icons/io";
 import { IoMdThumbsDown } from "react-icons/io";
+import LikeBtn from "../components/LikeBtn";
 
 const Details = () => {
 
+    const { id } = useParams();
     const artifact = useLoaderData();
     const { name, image, type, historicalContext, createdAt, discoveredAt, discoveredBy, presentLocation, addedBy, adderName, likeCount } = artifact;
 
@@ -36,8 +38,7 @@ const Details = () => {
                         <p className="flex items-center gap-1 mt-1 font-semibold"><IoMdHeart className="text-[#E2B13C]" />Likes: {likeCount}</p>
                     </div>
                     <div className="flex gap-4 justify-start items-center">
-                        <button className="text-green-900 border border-[#E2B13C] rounded-lg p-1 px-2"><IoMdThumbsUp /></button>
-                        <button className="border text-red-900 border-[#E2B13C] rounded-lg p-1 px-2"><IoMdThumbsDown /></button>
+                        {/* <LikeBtn artifactId={id} initialLikeCount={likeCount}></LikeBtn> */}
                     </div>
                 </div>
             </div>

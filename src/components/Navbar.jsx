@@ -13,6 +13,21 @@ const Navbar = () => {
         <Link className="font-semibold" to="/">Home</Link>
         <Link className="font-semibold" to="/allArtifacts">All Artifacts</Link>
         <Link className="font-semibold" to="/addArtifact">Add Artifact</Link>
+        {user && user?.email && (
+            <div className="dropdown">
+                <button tabIndex={0} className="font-semibold">
+                    My Profile
+                </button>
+                <ul
+                    tabIndex={0}
+                    className="menu menu-sm dropdown-content text-[#E2B13C] bg-[white] rounded-box z-[1] w-48 px-8 shadow"
+                >
+                    <li><Link className="font-semibold" to="/myArtifacts">My Artifacts</Link></li>
+                    <li><Link className="font-semibold" to="/likedArtifacts">Liked Artifacts</Link></li>
+                    
+                </ul>
+            </div>
+        )}
     </>
 
     return (
@@ -48,7 +63,7 @@ const Navbar = () => {
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
-                    <div className="flex gap-5 text-white">
+                    <div className="flex items-center gap-5 text-white">
                         {links}
                     </div>
                 </ul>
