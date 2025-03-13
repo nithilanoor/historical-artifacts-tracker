@@ -1,35 +1,52 @@
+import { useState, useEffect } from "react";
 import axios from "axios";
-import { useState } from "react";
-// import useAxios from "../hooks/useAxios";
+import useAuth from "../hooks/useAuth";
+import { FaHeart } from "react-icons/fa";
 
+const LikeBtn = ({ productId }) => {
+    const { user } = useAuth();
+    const userId = user?.uid
+    const [likeCount, setLikeCount] = useState(0);
+    const [liked, setLiked] = useState(false);
 
-const LikeBtn = ({ artifactId, initialLikes, userId, initialLiked }) => {
+    useEffect(() => {
+        axios.get(`http://localhost:5000/artifacts/${productId}`)
+            .then(response => {
+                setLikeCount(response.data.likeCount);
 
-    const [likes, setLikes] = useState(initialLikes);
-    const [liked, setLiked] = useState(initialLiked);
-    // const axiosSecure = useAxios();
+                // Check if the user has already liked this product
+                if (response.data.likedBy?.includes(userId)) {
+                    setLiked(true);
+                }
+            })
+            .catch(error => console.error("Error fetching likes:", error));
+    }, [productId, userId]);
 
-    const handleToggleLike = async () => {
-        try {
-            const response = await axios.put(`/artifacts/${artifactId}/like`);
-            if (response.status === 200) {
-                setLiked(!liked);
-                setLikes(liked ? likes - 1 : likes + 1);
-            }
-        } catch (error) {
-            console.error("Error liking artifact:", error);
-        }
+    const handleLike = () => {
+        if (liked) return; // Prevent multiple likes
+
+        axios.post(`http://localhost:5000/artifacts/${productId}/like`, { userId })
+            .then(() => {
+                setLikeCount(prev => prev + 1);
+                console.log(userId)
+                setLiked(true);
+            })
+            .catch(error => {
+                console.error("Error liking product:", error);
+                if (error.response?.status === 400) {
+                    setLiked(true); // Prevent spam clicking if backend rejects duplicate likes
+                }
+            });
     };
 
     return (
-        <div>
-            <button
-                onClick={handleToggleLike}
-                className={`btn ${liked ? "btn-primary" : "btn-outline"}`}
-            >
-                {liked ? "Unlike" : "Like"} ({likes})
-            </button>
-        </div>
+        <button
+            className={`px-4 py-2 my-2 rounded-md transition ${liked ? "bg-gray-400 flex justify-center items-center gap-2" : "btn bg-[#E2B13C] text-white hover:bg-white hover:text-[#E2B13C] flex items-center justify-center gap-2"}`}
+            onClick={handleLike}
+            disabled={liked}
+        >
+            <FaHeart /> {likeCount} {liked ? "Liked" : "Like"}
+        </button>
     );
 };
 

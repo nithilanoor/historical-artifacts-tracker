@@ -13,30 +13,37 @@ const HomeLayout = () => {
             <Helmet>
                 <title>Artifacts | Home</title>
             </Helmet>
-            <nav className="w-11/12 mx-auto">
+            <nav className="">
                 <Navbar></Navbar>
             </nav>
 
-            <main className="w-11/12 mx-auto">
+            <main>
+
                 {/* Banner */}
-                <section>
+                <section id="banner">
                     <Banner></Banner>
                 </section>
-                {/* Featured Artifacts */}
-                <section>
-                    <Featured></Featured>
-                </section>
-                {/* Historical Facts "extra section" */}
-                <section>
-                    <Facts></Facts>
-                </section>
+
+                <div className="w-11/12 mx-auto">
+                    {/* Featured Artifacts */}
+                    <section>
+                        <Featured></Featured>
+                    </section>
+                    {/* Historical Facts "extra section" */}
+                    <section>
+                        <Facts></Facts>
+                    </section>
+
+                </div>
+
                 {/* Newsletter "extra section" */}
-                <section>
+                <section className="w-full">
                     <NewsLetter></NewsLetter>
                 </section>
+
             </main>
 
-            <footer className="w-11/12 mx-auto">
+            <footer className="">
                 <Footer></Footer>
             </footer>
 

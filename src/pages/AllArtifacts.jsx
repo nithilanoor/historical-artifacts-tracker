@@ -24,31 +24,31 @@ const AllArtifacts = () => {
     );
 
     return (
-        <div className="w-11/12 mx-auto">
+        <div>
             <Helmet>
                 <title>All Artifacts</title>
             </Helmet>
             <nav>
                 <Navbar></Navbar>
             </nav>
-
-            <section className="my-12">
-                <div className="mb-6">
-                    <input
-                        type="text"
-                        placeholder="Search artifacts by name..."
-                        className="input input-bordered border-yellow-500 w-full max-w-md"
-                        value={searchTerm}
-                        onChange={(e) => setSearchTerm(e.target.value)}
-                    />
-                </div>
-                <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-4">
-                    {
-                        filteredArtifacts.map(art => <ArtifactCard key={art._id} art={art}></ArtifactCard>)
-                    }
-                </div>
-            </section>
-
+            <div className="w-11/12 mx-auto">
+                <section className="my-12">
+                    <div className="mb-6">
+                        <input
+                            type="text"
+                            placeholder="Search artifacts by name..."
+                            className="input input-bordered border-yellow-500 w-full max-w-md"
+                            value={searchTerm}
+                            onChange={(e) => setSearchTerm(e.target.value)}
+                        />
+                    </div>
+                    <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-4">
+                        {
+                            filteredArtifacts.map(art => <ArtifactCard key={art._id} art={art}></ArtifactCard>)
+                        }
+                    </div>
+                </section>
+            </div>
             <footer>
                 <Footer></Footer>
             </footer>

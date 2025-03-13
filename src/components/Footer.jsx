@@ -3,6 +3,7 @@ import { FaFacebookSquare } from "react-icons/fa";
 import { FaSquareXTwitter } from "react-icons/fa6";
 import { FaYoutube } from "react-icons/fa";
 import { GiSpartanHelmet } from "react-icons/gi";
+import { Link } from "react-router-dom";
 
 
 const Footer = () => {
@@ -13,7 +14,7 @@ const Footer = () => {
                 <h2 className="text-3xl font-bold text-center text-white">Historical Artifacts</h2>
             </div>
 
-            <div className="my-12 space-y-4 md:space-y-0 md:flex justify-around">
+            <div className="my-12 grid mx-auto space-y-4 md:space-y-0 md:flex justify-around gap-12">
 
                 <div>
                     <h3 className="text-xl font-bold text-white">Contact Us</h3>
@@ -37,7 +38,7 @@ const Footer = () => {
                 <div>
                     <h3 className="text-xl font-bold text-white">Useful Links</h3>
                     <ul className="text-gray-400 font-semibold">
-                        <li>Home</li>
+                        <a href="#banner">Home</a>
                         <li>About Us</li>
                         <li>Lessons</li>
                         <li>Contacts</li>
@@ -45,7 +46,7 @@ const Footer = () => {
                 </div>
 
             </div>
-            <p className="text-center  text-[#E2B13C]">© 2024 Lingo Bingo. All rights reserved.</p>
+            <p className="text-center  text-[#E2B13C]">© 2024 Historical Artifacts. All rights reserved.</p>
         </div>
     );
 };
