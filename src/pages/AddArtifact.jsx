@@ -192,6 +192,7 @@ const AddArtifact = () => {
                             </label>
                             <input
                                 defaultValue={user?.displayName}
+                                readOnly
                                 name="adderName"
                                 type="text"
                                 className="input input-bordered"
@@ -206,6 +207,7 @@ const AddArtifact = () => {
                             </label>
                             <input
                                 defaultValue={user?.email}
+                                readOnly
                                 name="addedBy"
                                 type="text"
                                 className="input input-bordered"
