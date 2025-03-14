@@ -1,10 +1,8 @@
-import { BsInstagram } from "react-icons/bs";
-import { FaFacebookSquare } from "react-icons/fa";
-import { FaSquareXTwitter } from "react-icons/fa6";
-import { FaYoutube } from "react-icons/fa";
 import { GiSpartanHelmet } from "react-icons/gi";
+import { MdFeaturedPlayList } from "react-icons/md";
+import { MdOutlineFactCheck } from "react-icons/md";
+import { GiGlowingArtifact } from "react-icons/gi";
 import { Link } from "react-router-dom";
-
 
 const Footer = () => {
     return (
@@ -27,21 +25,20 @@ const Footer = () => {
                     </ul>
                 </div>
                 <div>
-                    <h3 className="text-xl font-bold text-white">Find Us On</h3>
-                    <ul className="text-gray-400 font-semibold">
-                        <li className="flex gap-2 items-center"><BsInstagram className="text-[#E2B13C]" />Instagram</li>
-                        <li className="flex gap-2 items-center"><FaFacebookSquare className="text-[#E2B13C]" /> Facebook</li>
-                        <li className="flex gap-2 items-center"><FaSquareXTwitter className="text-[#E2B13C]" /> Twitter</li>
-                        <li className="flex gap-2 items-center"><FaYoutube className="text-[#E2B13C]" /> Youtube</li>
+                    <h3 className="text-xl font-bold text-white">Explore</h3>
+                    <ul className="text-gray-400 font-semibold grid">
+                    <a href="/#featured"><li className="flex gap-2 items-center"><MdFeaturedPlayList className="text-[#E2B13C]" />Featured</li></a>
+                    <a href="/#facts"><li className="flex gap-2 items-center"><MdOutlineFactCheck className="text-[#E2B13C]" />Facts</li></a>
+                    <Link to={"/allArtifacts"}><li className="flex gap-2 items-center"><GiGlowingArtifact className="text-[#E2B13C]" />All Artifacts</li></Link>
                     </ul>
                 </div>
                 <div>
                     <h3 className="text-xl font-bold text-white">Useful Links</h3>
-                    <ul className="text-gray-400 font-semibold">
-                        <a href="#banner">Home</a>
-                        <li>About Us</li>
-                        <li>Lessons</li>
-                        <li>Contacts</li>
+                    <ul className="text-gray-400 font-semibold grid">
+                        <a href="/">Home</a>
+                        <a href="/#aboutUs">About Us</a>
+                        <a href="/#mission">Our Mission</a>
+                        <a href="/#contact">Contact</a>
                     </ul>
                 </div>
 

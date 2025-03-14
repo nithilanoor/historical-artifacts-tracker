@@ -61,7 +61,7 @@ const Update = () => {
                 <title>Update | {name}</title>
             </Helmet>
             <nav className="w-full"><Navbar></Navbar></nav>
-            <div className="w-11/12 mx-auto">
+            <div className="w-11/12 mx-auto pt-12 mt-12">
                 <section className="my-12">
                     <div className="max-w-2xl mx-auto p-6 my-12 bg-white rounded-lg shadow-lg">
                         <h2 className="text-3xl font-bold text-center text-[#E2B13C] my-4">Update Artifact: {name}</h2>

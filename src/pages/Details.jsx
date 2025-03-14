@@ -26,7 +26,7 @@ const Details = () => {
             <nav>
                 <Navbar></Navbar>
             </nav>
-            <div className=" min-h-screen">
+            <div className="pt-12 mt-12 min-h-screen flex justify-center items-center mx-auto my-12">
                 <div className="card bg-base-100">
                     <figure className="px-10 pt-10">
                         <img

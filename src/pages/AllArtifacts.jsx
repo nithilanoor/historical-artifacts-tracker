@@ -31,7 +31,7 @@ const AllArtifacts = () => {
             <nav>
                 <Navbar></Navbar>
             </nav>
-            <div className="w-11/12 mx-auto">
+            <div className="w-11/12 mx-auto min-h-screen mt-32">
                 <section className="my-12">
                     <div className="mb-6">
                         <input

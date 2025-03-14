@@ -20,7 +20,7 @@ const Featured = () => {
     }, [])
 
     return (
-        <div className="my-12">
+        <div className="my-16">
             <h2 className="text-3xl font-semibold text-center">Featured <span className="text-[#E2B13C]">ARTIFACTS</span></h2>
             <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-4 my-8">
                 {

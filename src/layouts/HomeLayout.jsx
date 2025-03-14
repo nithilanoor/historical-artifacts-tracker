@@ -5,6 +5,8 @@ import Featured from "../components/Featured";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import NewsLetter from "../components/NewsLetter";
+import AboutUs from "../components/AboutUs";
+import OurMission from "../components/OurMission";
 
 const HomeLayout = () => {
     return (
@@ -25,19 +27,30 @@ const HomeLayout = () => {
                 </section>
 
                 <div className="w-11/12 mx-auto">
+                
+                    {/* About Us */}
+                    <section id="aboutUs">
+                        <AboutUs></AboutUs>
+                    </section>
+
+                    {/* Our Mission */}
+                    <section id="mission">
+                        <OurMission></OurMission>
+                    </section>
+
                     {/* Featured Artifacts */}
-                    <section>
+                    <section id="featured">
                         <Featured></Featured>
                     </section>
                     {/* Historical Facts "extra section" */}
-                    <section>
+                    <section id="facts">
                         <Facts></Facts>
                     </section>
 
                 </div>
 
                 {/* Newsletter "extra section" */}
-                <section className="w-full">
+                <section id="contact" className="w-full">
                     <NewsLetter></NewsLetter>
                 </section>
 

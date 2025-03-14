@@ -4,7 +4,7 @@ import deadSeaRolls from "../../public/deadSeaRolls.jpg"
 
 const Banner = () => {
     return (
-        <section className="py-1">
+        <section className="py-1 mt-20">
             <div className="carousel w-full">
                 {/* Slide 1 */}
                 <div id="slide1" className="carousel-item relative w-full">

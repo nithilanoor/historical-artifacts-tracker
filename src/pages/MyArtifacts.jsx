@@ -63,7 +63,7 @@ const MyArtifacts = () => {
                 <title>My Artifacts</title>
             </Helmet>
             <nav><Navbar></Navbar></nav>
-            <div className="w-11/12 mx-auto min-h-screen">
+            <div className="w-11/12 mx-auto min-h-screen pt-12 mt-12">
                 <section className="my-12">
                     <h2 className="text-xl font-bold text-[#E2B13C]">My Artifacts: ({artifacts.length})</h2>
                     <div>

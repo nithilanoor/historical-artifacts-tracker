@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import useAuth from "../hooks/useAuth";
 import { FaHeart } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 const LikeBtn = ({ productId }) => {
     const { user } = useAuth();
@@ -30,6 +31,15 @@ const LikeBtn = ({ productId }) => {
                 setLikeCount(prev => prev + 1);
                 console.log(userId)
                 setLiked(true);
+                Swal.fire({
+                    position: "top-end",
+                    width: 350,
+                    heightAuto: true,
+                    icon: "success",
+                    text: "Artifact Liked!",
+                    showConfirmButton: false,
+                    timer: 1000
+                  });
             })
             .catch(error => {
                 console.error("Error liking product:", error);
