@@ -3,22 +3,21 @@ import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import { useEffect, useState } from "react";
 import useAuth from "../hooks/useAuth";
-import axios from "axios";
 import { Link } from "react-router-dom";
 import { IoMdHeart } from "react-icons/io";
-// import useAxios from "../hooks/useAxios";
+import useAxios from "../hooks/useAxios";
 
 const LikedArtifacts = () => {
 
     const [likes, setLikes] = useState();
     const { user } = useAuth();
     const userId = user?.uid;
-    // const axiosSecure = useAxios();
+    const axiosSecure = useAxios();
 
     useEffect(() => {
         if (!userId) return;
 
-        axios.get(`http://localhost:5000/liked-artifacts/${userId}`)
+        axiosSecure.get(`/liked-artifacts/${userId}`)
             .then(response => {
                 setLikes(response.data);
                 console.log(response.data)

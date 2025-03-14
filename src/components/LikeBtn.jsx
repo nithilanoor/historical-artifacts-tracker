@@ -3,15 +3,17 @@ import axios from "axios";
 import useAuth from "../hooks/useAuth";
 import { FaHeart } from "react-icons/fa";
 import Swal from "sweetalert2";
+import useAxios from "../hooks/useAxios";
 
 const LikeBtn = ({ productId }) => {
     const { user } = useAuth();
     const userId = user?.uid
     const [likeCount, setLikeCount] = useState(0);
     const [liked, setLiked] = useState(false);
+    const axiosSecure = useAxios();
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/artifacts/${productId}`)
+        axiosSecure.get(`/artifacts/${productId}`)
             .then(response => {
                 setLikeCount(response.data.likeCount);
 
@@ -26,7 +28,7 @@ const LikeBtn = ({ productId }) => {
     const handleLike = () => {
         if (liked) return; // Prevent multiple likes
 
-        axios.post(`http://localhost:5000/artifacts/${productId}/like`, { userId })
+        axiosSecure.post(`/artifacts/${productId}/like`, { userId })
             .then(() => {
                 setLikeCount(prev => prev + 1);
                 console.log(userId)
